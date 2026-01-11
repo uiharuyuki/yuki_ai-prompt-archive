@@ -1,0 +1,24 @@
+[
+{
+  "model": "gallery.post",
+  "pk": 1,
+  "fields": {
+    "title": "‚İ‚ä‚«",
+    "image": "images/defcb71b-7e1d-4e41-a6c5-eb91d2ba4bdc_1.png",
+    "prompt": "„C„y„}„~„p„ƒ„„„{„p „r „‰„…„|„{„p„‡. „O„~„p „~„p „„„‚„u„~„y„‚„€„r„{„u. „T „~„u„u curvy figure",
+    "negative_prompt": "",
+    "ai_model": "DaysAI",
+    "category": "Image Generation",
+    "created_at": "2026-01-11T14:58:44.965Z"
+  }
+},
+{
+  "model": "gallery.comment",
+  "pk": 1,
+  "fields": {
+    "post": 1,
+    "text": "‰“ŠeI",
+    "created_at": "2026-01-11T14:58:44.967Z"
+  }
+}
+]
