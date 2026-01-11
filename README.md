@@ -102,3 +102,12 @@ yuki_ai-prompt-archive/
 ## 作成者
 
 Yuki
+
+## 使用ツール
+
+Gemini 3.0 pro（企画書作成＆Claudeへの指示プロンプト作成）
+Claude Code（MVP！）
+
+## 制作時間
+
+２時間
