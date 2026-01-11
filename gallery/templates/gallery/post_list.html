@@ -1,0 +1,21 @@
+{% extends "gallery/base.html" %}
+
+{% block title %}AI PROMPT ARCHIVE{% endblock %}
+
+{% block content %}
+<div class="gallery-grid">
+    {% for post in post_list %}
+    <a href="{% url 'gallery:post_detail' post.pk %}">
+        <div class="gallery-item">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" class="gallery-thumb">
+            {% else %}
+                <div class="gallery-thumb"></div>
+            {% endif %}
+        </div>
+    </a>
+    {% empty %}
+    <p style="grid-column: 1/-1; text-align:center; color:#999;">まだ投稿がありません。</p>
+    {% endfor %}
+</div>
+{% endblock %}

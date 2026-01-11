@@ -1,0 +1,56 @@
+{% extends "gallery/base.html" %}
+
+{% block title %}{{ post.title }} - AI PROMPT ARCHIVE{% endblock %}
+
+{% block content %}
+<div class="detail-layout">
+    <div class="detail-image-area">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" alt="{{ post.title }}" class="detail-image">
+        {% else %}
+            <div style="background:#ddd; width:100%; aspect-ratio:2/3; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#888;">
+                No Image
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="detail-info-area">
+        <div class="detail-meta">
+            <h1 class="detail-title">{{ post.title }}</h1>
+            <div class="tags">
+                <span class="tag">{{ post.ai_model }}</span>
+                <span class="tag">{{ post.get_category_display }}</span>
+                <span class="tag">{{ post.created_at|date:"Y.m.d" }}</span>
+            </div>
+        </div>
+
+        <div class="prompt-section">
+            <span class="section-label">Prompt (Positive)</span>
+            <div class="prompt-box" onclick="copyToClipboard(this)">{{ post.prompt }}</div>
+        </div>
+
+        {% if post.negative_prompt %}
+        <div class="prompt-section">
+            <span class="section-label">Negative Prompt</span>
+            <div class="prompt-box" onclick="copyToClipboard(this)">{{ post.negative_prompt }}</div>
+        </div>
+        {% endif %}
+
+        <div class="comment-area">
+            {% if post.comments.exists %}
+                <span class="section-label">Admin Memo</span>
+                {% for comment in post.comments.all %}
+                <div class="admin-memo">
+                    {{ comment.text|linebreaks }}
+                </div>
+                {% endfor %}
+            {% endif %}
+
+            <span class="section-label">Comments</span>
+            <div style="color:#666; font-size:0.9rem;">
+                <p>No comments yet.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
